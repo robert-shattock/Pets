@@ -1,0 +1,17 @@
+C:\Rob\Programming\Jobs\DotNetCoreMVCTechDemo\PeopleApplication\obj\Debug\netstandard2.0\Pets.Application.csprojAssemblyReference.cache
+C:\Rob\Programming\Jobs\DotNetCoreMVCTechDemo\PeopleApplication\obj\Debug\netstandard2.0\Pets.Application.AssemblyInfoInputs.cache
+C:\Rob\Programming\Jobs\DotNetCoreMVCTechDemo\PeopleApplication\obj\Debug\netstandard2.0\Pets.Application.AssemblyInfo.cs
+C:\Rob\Programming\Jobs\DotNetCoreMVCTechDemo\PeopleApplication\obj\Debug\netstandard2.0\Pets.Application.csproj.CoreCompileInputs.cache
+C:\Rob\Programming\Jobs\DotNetCoreMVCTechDemo\PeopleApplication\bin\Debug\netstandard2.0\Pets.Application.deps.json
+C:\Rob\Programming\Jobs\DotNetCoreMVCTechDemo\PeopleApplication\bin\Debug\netstandard2.0\Pets.Application.dll
+C:\Rob\Programming\Jobs\DotNetCoreMVCTechDemo\PeopleApplication\bin\Debug\netstandard2.0\Pets.Application.pdb
+C:\Rob\Programming\Jobs\DotNetCoreMVCTechDemo\PeopleApplication\obj\Debug\netstandard2.0\Pets.Application.dll
+C:\Rob\Programming\Jobs\DotNetCoreMVCTechDemo\PeopleApplication\obj\Debug\netstandard2.0\Pets.Application.pdb
+C:\Rob\Programming\Jobs\Pets\Pets.Application\bin\Debug\netstandard2.0\Pets.Application.deps.json
+C:\Rob\Programming\Jobs\Pets\Pets.Application\bin\Debug\netstandard2.0\Pets.Application.dll
+C:\Rob\Programming\Jobs\Pets\Pets.Application\bin\Debug\netstandard2.0\Pets.Application.pdb
+C:\Rob\Programming\Jobs\Pets\Pets.Application\obj\Debug\netstandard2.0\Pets.Application.AssemblyInfoInputs.cache
+C:\Rob\Programming\Jobs\Pets\Pets.Application\obj\Debug\netstandard2.0\Pets.Application.AssemblyInfo.cs
+C:\Rob\Programming\Jobs\Pets\Pets.Application\obj\Debug\netstandard2.0\Pets.Application.csproj.CoreCompileInputs.cache
+C:\Rob\Programming\Jobs\Pets\Pets.Application\obj\Debug\netstandard2.0\Pets.Application.dll
+C:\Rob\Programming\Jobs\Pets\Pets.Application\obj\Debug\netstandard2.0\Pets.Application.pdb

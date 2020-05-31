@@ -1,0 +1,18 @@
+﻿@model Pets.UI.ViewModels.CatOwners.CatOwnersViewModel
+@{
+    ViewData["Title"] = "Cat Owners";
+}
+
+<h1>@ViewData["Title"]</h1>
+
+@foreach (var catsByGender in Model.CatsByGender)
+{
+    <h2>@catsByGender.OwnerGender</h2>
+    <ul>
+        @foreach (var catName in catsByGender.CatNames)
+        {
+            <li>@catName</li>
+        }
+    </ul>
+}
+
