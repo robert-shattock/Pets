@@ -1,6 +1,6 @@
 # Overview of Solution
 
-This solution is intended to solve the requirements of the AGL developer test as per http://agl-developer-test.azurewebsites.net/
+This solution is intended to solve the requirements of the AGL developer test as per http://agl-developer-test.azurewebsites.net/ but in summary is a simple example of a website consuming a web service, manipulating the data and displaying it.  The idea is to showcase some best practices and to follow common design principles like separation of concerns.
 
 The focus of the solution is on the backend with just a simple frontend to show the output.
 
@@ -13,6 +13,10 @@ The technology chosen is as follows:
 * Pets.UI project targets .NET Core 3.1 and uses ASP.NET Core 3.1 (TODO terminology might need some work here... target vs framework vs metapackage vs project template)
 * Pets.Application targets .NET Standard 2.0 for maximum compatability with other projects
 * Pets.Test targets .NET Core 3.1 as it is testing functionality in the Pets.UI project which targets .NET Core 3.1
+
+The CI/CD and hosting is as follows:
+* Azure DevOps - Used for CI/CD - every commit to master triggers the CI (build, run unit tests and package) and CD (deploy to Azure)
+* Azure App Service - https://petswebsite.azurewebsites.net/ (Resource group in Azure, containing an App Service Plan and App Service) 
 
 Details of considerations while developing each layer:
 
@@ -57,3 +61,15 @@ Details of considerations while developing each layer:
 * Integration tests for PeopleService perhaps.
 * Polly to give more robustness to HTTP requests (timeout handling, retries etc).
 * etc.
+
+## Azure DevOps
+* There are plenty of options for dev ops and CI/CD e.g. Azure DevOps, TeamCity, Jenkins, GitHub Actions etc. but I've chosen Azure DevOps to keep as much in the Microsoft stack as possible, making for easier integrations between source code (GitHub), dev ops (Azure DevOps) and deployment (Azure App Service). https://docs.microsoft.com/en-us/azure/devops/learn/what-is-devops
+* Regardless of tools used, setting up CI/CD even for a small project helps ensures code quality by automatically running a build and tests for every checkin and saves time and money by automating the deployments (and rollbacks if required) whether they be manually or automatically triggered. https://nevercode.io/blog/what-is-continuous-integration-and-how-to-benefit-from-it/
+* The Azure DevOps pipelines for build and release setup for this project have been built with standard pipeline tasks https://docs.microsoft.com/en-au/azure/devops/pipelines/ecosystems/dotnet-core?view=azure-devops. 
+* The build pipeline is triggered by any commit into master branch of the GitHub repository. The process has been simplified - for any production system I'd following something like GitFlow or GitHub Flow (depending on complexity of system and versioning requirements etc) https://nvie.com/posts/a-successful-git-branching-model/ https://guides.github.com/introduction/flow/. The main thing is that any change should have a pull request ideally associated with it to maintain code quality.
+* The automated tests are run in the CI via the Visual Studio Tests task "VSTest@2".  I had to make two changes to get this working correctly 1) set it to target the .NET Core 3.1 framework via otherConsoleOptions (it is meant to pick up the target framework of the test project but for some reason this wasn't working) and get it to explicity target the test project DLL (the default DLLs were too broad and it was trying to run tests on non-test DLLs).   
+* The release pipeline is triggered by any successful build pipeline completing (it uses the zip file build artificat from the build pipeline) and deploys to a website hosted in Azure as an App Service.  
+
+## Azure App Service
+* Azure Service Plan - I've used a Windows host for the Azure Service Plan hosting the App Service but could have chosen Linux to probably save some money without any major issues given we're using .NET Core.
+* Azure App Seervice - https://petswebsite.azurewebsites.net/ (Resource group in Azure, containing an App Service Plan and App Service) 
